@@ -1,24 +1,28 @@
 import React from 'react'
 import { StyleSheet, Text, TouchableOpacity } from 'react-native'
 import { WARNA_UTAMA, WARNA_SEKUNDER } from '../../utils/constants';
-import { IconHome, IconHomeActive, IconJadwal, IconJadwalActive, IconUser, IconUserActive } from '../../assets'
+import IconHome from '../../assets/icons/home.svg';
+import IconHomeActive from '../../assets/icons/homeAktif.svg';
+import IconJadwal from '../../assets/icons/jadwal.svg';
+import IconJadwalActive from '../../assets/icons/jadwalAktif.svg';
+import IconUser from '../../assets/icons/user.svg';
+import IconUserActive from '../../assets/icons/userAktif.svg';
 
-export const Icon = () => {
-    if (label === "Home") {
-        return isFocused ? <IconHomeActive /> : <IconHome />;
+export default function TabItem({ label, isFocused, onLongPress, onPress }) {
+    const Icon = () => {
+        if (label === "Home") {
+            return isFocused ? <IconHomeActive /> : <IconHome />;
+        }
+
+        if (label === "Jadwal") {
+            return isFocused ? <IconJadwalActive /> : <IconJadwal />;
+        }
+
+        if (label === "Akun") {
+            return isFocused ? <IconUserActive /> : <IconUser />;
+        }
+        return null
     }
-
-    if (label === "Jadwal") {
-        return isFocused ? <IconJadwalActive /> : <IconJadwal />;
-    }
-
-    if (label === "Akun") {
-        return isFocused ? <IconUserActive /> : <IconUser />;
-    }
-}
-
-const TabItem = ({ label, isFocused, onLongPress, onPress }) => {
-
     return (
         <TouchableOpacity
             onPress={onPress}
@@ -32,8 +36,6 @@ const TabItem = ({ label, isFocused, onLongPress, onPress }) => {
         </TouchableOpacity>
     )
 }
-
-export default TabItem
 
 const styles = StyleSheet.create({
     container: {

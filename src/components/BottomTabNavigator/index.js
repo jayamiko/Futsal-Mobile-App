@@ -1,6 +1,6 @@
-import React from 'react';
-import { StyleSheet, Text, View, TouchableOpacity } from 'react-native';
-import TabItem from '../TabItem/index';
+import React from 'react'
+import { StyleSheet, Text, View, TouchableOpacity } from 'react-native'
+import TabItem from '../TabItem';
 
 const BottomTabNavigator = ({ state, descriptors, navigation }) => {
     const focusedOptions = descriptors[state.routes[state.index].key].options;
@@ -42,21 +42,18 @@ const BottomTabNavigator = ({ state, descriptors, navigation }) => {
                 };
 
                 return (
-                    <View>
-                        <TabItem
-                            key={index}
-                            isFocused={isFocused}
-                            label={label}
-                            onLongPress={onLongPress}
-                            onPress={onPress}
-                        />
-                    </View>
+                    <TabItem
+                        key={index}
+                        isFocused={isFocused}
+                        label={label}
+                        onLongPress={onLongPress}
+                        onPress={onPress}
+                    />
                 );
             })}
         </View>
-    )
+    );
 }
-
 
 export default BottomTabNavigator
 
